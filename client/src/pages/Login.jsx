@@ -3,6 +3,8 @@ import "../styles/FormStyle.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
+import { useDispatch } from "react-redux";
+import { showLoading, hideLoading } from "../redux/features/alertSlice";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,7 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,10 +49,13 @@ const Login = () => {
     if (Object.keys(validationErrors).length === 0) {
       // Submit the form - you can add your logic here for handling the registration request
       try {
+        dispatch(showLoading());
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         const res = await axios.post(
           "http://localhost:8080/api/v1/user/login",
           formData
         );
+        dispatch(hideLoading());
         if (res.data.success) {
           localStorage.setItem("token", res.data.token);
           message.success("Login Succesfully");
@@ -59,6 +65,7 @@ const Login = () => {
         }
         console.log(formData);
       } catch (error) {
+        dispatch(hideLoading());
         console.log(error);
         message.error("Something went wrong");
       }

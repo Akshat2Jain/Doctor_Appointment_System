@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/FormStyle.css";
 import { message } from "antd";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { showLoading, hideLoading } from "../redux/features/alertSlice";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +30,7 @@ const Register = () => {
   };
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,10 +56,12 @@ const Register = () => {
     if (Object.keys(validationErrors).length === 0) {
       // Submit the form -  logic here for handling the registration request
       try {
+        dispatch(showLoading());
         const res = await axios.post(
           "http://localhost:8080/api/v1/user/register",
           formData
         );
+        dispatch(hideLoading());
         if (res.data.success) {
           message.success("Register Successfully");
           navigate("/login");
@@ -64,6 +69,7 @@ const Register = () => {
           message.error(res.data.message);
         }
       } catch (error) {
+        dispatch(hideLoading());
         console.log(error);
         message.error("Something went Wrong");
       }
