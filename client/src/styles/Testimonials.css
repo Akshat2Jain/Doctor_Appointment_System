@@ -1,0 +1,22 @@
+/* Testimonials.css */
+.testimonials-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.testimonials-container h2 {
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.author {
+  font-style: italic;
+}
