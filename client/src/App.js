@@ -8,9 +8,12 @@ import Dashboard from "./pages/Dashboard";
 import Loading from "./components/Loading";
 import "./App.css";
 import { useSelector } from "react-redux";
+import PublicRoute from "./components/PublicRoute";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 const App = () => {
   const { loading } = useSelector((state) => state.alerts);
+
   return (
     <>
       {loading ? (
@@ -23,13 +26,33 @@ const App = () => {
       ) : (
         <BrowserRouter>
           <div className="app-container">
-            <Navbar />
             <Routes>
               <Route>
                 <Route path="/" element={<HomePage />} />
-                <Route path="Login" element={<Login />} />
-                <Route path="Register" element={<Register />} />
-                <Route path="Dashboard" element={<Dashboard />} />
+                <Route
+                  path="Login"
+                  element={
+                    <PublicRoute>
+                      <Login />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="Register"
+                  element={
+                    <PublicRoute>
+                      <Register />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="Dashboard"
+                  element={
+                    <ProtectedRoutes>
+                      <Dashboard />
+                    </ProtectedRoutes>
+                  }
+                />
               </Route>
             </Routes>
           </div>

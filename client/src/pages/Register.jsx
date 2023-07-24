@@ -5,6 +5,7 @@ import { message } from "antd";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import Navbar from "../components/Navbar";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -77,53 +78,56 @@ const Register = () => {
     }
   };
   return (
-    <div className="form-container">
-      <h2 className="form-title">Join the Doctor Appointment Hub</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name"> 🧑‍⚕️ Your Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          {errors.name && <p className="error-msg">{errors.name}</p>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="email"> ✉️ Email:</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {errors.email && <p className="error-msg">{errors.email}</p>}
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">🔒 Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          {errors.password && <p className="error-msg">{errors.password}</p>}
-        </div>
-        <button type="submit" className="submit-btn">
-          Register
-        </button>
-      </form>
-      <p>
-        Already registered?{" "}
-        <span className="link" onClick={() => navigate("/login")}>
-          Login here
-        </span>
-      </p>
-    </div>
+    <>
+      <Navbar />
+      <div className="form-container">
+        <h2 className="form-title">Join the Doctor Appointment Hub</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name"> 🧑‍⚕️ Your Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <p className="error-msg">{errors.name}</p>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="email"> ✉️ Email:</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && <p className="error-msg">{errors.email}</p>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">🔒 Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            {errors.password && <p className="error-msg">{errors.password}</p>}
+          </div>
+          <button type="submit" className="submit-btn">
+            Register
+          </button>
+        </form>
+        <p>
+          Already registered?{" "}
+          <span className="link" onClick={() => navigate("/login")}>
+            Login here
+          </span>
+        </p>
+      </div>
+    </>
   );
 };
 
