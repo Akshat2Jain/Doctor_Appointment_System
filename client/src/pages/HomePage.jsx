@@ -1,6 +1,4 @@
 import React from "react";
-import Services from "../components/Services";
-import Testimonials from "../components/Testimonials";
 import "../styles/Homepage.css";
 
 const HomePage = () => {
