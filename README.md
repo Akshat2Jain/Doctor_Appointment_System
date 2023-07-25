@@ -4,6 +4,35 @@ Welcome to the Doctor Appointment System frontend repository! We are excited to 
 
 ## :rocket: Getting Started
 
+To run the Doctor Appointment System frontend application on your local machine, follow these steps:
+
+1. **Clone the Repository**: If you haven't done it already, clone the frontend repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/your-username/doctor-appointment-frontend.git
+```
+ Navigate to the Project Folder: Change your working directory to the project folder:
+
+ ```
+cd client
+```
+Install Dependencies: Before running the application, install the required dependencies using npm:
+
+```
+npm install
+```
+Start the Application: After installing the dependencies, you can start the application with the following command:
+
+```
+npm start
+```
+**Access the Application: Open your web browser and navigate to http://localhost:3000 to access the Doctor Appointment System frontend. You should see the application running in your browser.
+That's it! You have successfully started the Doctor Appointment System frontend application on your local machine. You can now explore the application, make changes, and contribute to the project.**
+
+
+
+## Contributing
+
 1. **Fork the Repository**: Click on the "Fork" button at the top right corner of this repository to create your copy.
 
 2. **Clone the Repository**: Clone the forked repository to your local machine using the following command:
