@@ -9,7 +9,7 @@ To run the Doctor Appointment System frontend application on your local machine,
 1. **Clone the Repository**: If you haven't done it already, clone the frontend repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/doctor-appointment-frontend.git
+git clone https://github.com/your-username/Doctor_Appointment_System.git
 ```
  Navigate to the Project Folder: Change your working directory to the project folder:
 
