@@ -7,7 +7,7 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className="home-page">
-        <h1>Welcome to the Doctor Appointment System</h1>
+        <h1 className="text-center text-xl mx-4">Welcome to the Doctor Appointment System</h1>
       </div>
     </>
   );

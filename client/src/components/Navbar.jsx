@@ -21,7 +21,7 @@ const Navbar = () => {
             <li className="navbar-link" onClick={() => navigate("/register")}>
               <span>Sign Up</span>
             </li>
-            <li className="navbar-link">Contact Us</li>
+            <li className="navbar-link"onClick={() => navigate("/contsct-us")}>Contact Us</li>
           </ul>
         </div>
       </div>
