@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Button } from "antd";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import { message } from "antd";
+import SidebarApp from "../components/SidebarApp";
+import HeaderApp from "../components/HeaderApp";
+import PageContent from "../components/PageContent";
+import "../styles/Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -20,7 +24,7 @@ const Dashboard = () => {
           },
         }
       );
-      console.log(res);
+      console.log(res.data.data.name);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +43,13 @@ const Dashboard = () => {
   }, []);
   return (
     <>
-      <Button onClick={handleLogout}>Logout</Button>
+      <div className="DashApp">
+        <HeaderApp handleLogout={handleLogout} />
+        <div className="SideMenuAndPageContent">
+          <SidebarApp />
+          <PageContent />
+        </div>
+      </div>
     </>
   );
 };
