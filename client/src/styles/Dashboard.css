@@ -2,8 +2,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 90vh;
+  width: 99vw;
+  font-family: sans-serif;
+  height: 98vh;
 }
 .AppHeader {
   height: 50px;
@@ -13,6 +14,11 @@
   align-items: center;
   padding: 4px 20px 4px 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: -8px;
+  margin-left: -7px;
+  margin-right: -7px;
+  height: 50px;
+  font-family: "Times New Roman", Times, serif;
 }
 .AppFooter {
   height: 50px;
@@ -27,9 +33,12 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.05);
+  height: 500px;
 }
 .SideMenu {
   height: 100%;
+  margin-left: -10px;
+  width: 9rem;
 }
 .SideMenuVertical {
   height: 100%;
