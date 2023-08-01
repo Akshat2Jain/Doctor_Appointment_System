@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Services.css'; // Import the CSS file for this component
+import '../styles/Services.css'; 
 
 const Services = () => {
 
@@ -27,7 +27,7 @@ const Services = () => {
             description: 'Various health screenings and diagnostic tests.',
         },
     ];
-
+// added icons containers for possible UI
     return (
         <div className="services-container">
             <h2 className="services-title">Our Services</h2>

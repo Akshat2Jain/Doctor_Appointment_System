@@ -10,11 +10,7 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className="home-page">
-        {/* <Banner/> */}
         <h1>Welcome to the Doctor Appointment System</h1>
-        {/* <Services /> */}
-        {/* <Testimonials /> */}
-
       </div>
 
     </>
