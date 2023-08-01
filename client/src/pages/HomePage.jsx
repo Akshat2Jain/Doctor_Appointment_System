@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/Homepage.css";
 import Navbar from "../components/Navbar";
+import Banner from "../components/Banner"
+import Testimonials from "../components/Testimonial"
+import Services from "../components/Services"
 
 
 const HomePage = () => {
@@ -8,7 +11,10 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className="home-page">
-        <h1>Welcome to the Doctor Appointment System</h1>
+        <Banner/>
+        {/* <h1>Welcome to the Doctor Appointment System</h1> */}
+        <Testimonials/>
+        <Services/>
       </div>
 
     </>
