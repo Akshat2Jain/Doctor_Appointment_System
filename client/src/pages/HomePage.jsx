@@ -1,9 +1,7 @@
 import React from "react";
 import "../styles/Homepage.css";
 import Navbar from "../components/Navbar";
-import Testimonials from "../components/Testimonial";
-import Services from "../components/Services";
-import Banner from "../components/Banner";
+
 
 const HomePage = () => {
   return (
