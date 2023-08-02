@@ -1,5 +1,7 @@
 import React from 'react';
-import styles from "../styles/Testimonials.css"
+import "../styles/Testimonials.css"
+
+
 const Testimonials = () => {
   
   // Sample testimonial data
