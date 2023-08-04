@@ -10,6 +10,8 @@ import "./App.css";
 import { useSelector } from "react-redux";
 import PublicRoute from "./components/PublicRoute";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Applydoctor from "./pages/Applydoctor";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const { loading } = useSelector((state) => state.alerts);
@@ -28,7 +30,14 @@ const App = () => {
           <div className="app-container">
             <Routes>
               <Route>
-                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/"
+                  element={
+                    <PublicRoute>
+                      <HomePage />
+                    </PublicRoute>
+                  }
+                />
                 <Route
                   path="Login"
                   element={
@@ -54,6 +63,22 @@ const App = () => {
                   }
                 />
               </Route>
+              <Route
+                path="/applydoctor"
+                element={
+                  <ProtectedRoutes>
+                    <Applydoctor />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoutes>
+                    <Profile />
+                  </ProtectedRoutes>
+                }
+              />
             </Routes>
           </div>
         </BrowserRouter>

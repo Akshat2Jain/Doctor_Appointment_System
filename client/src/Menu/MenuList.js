@@ -11,6 +11,10 @@ export const userMenu = [
     name: "Profile",
     path: "/profile",
   },
+  {
+    name: "Doctor",
+    path: "/applydoctor",
+  },
 ];
 
 export const adminMenu = [
@@ -24,6 +28,6 @@ export const adminMenu = [
   },
   {
     name: "Doctors",
-    path: "/profile",
+    path: "/doctors",
   },
 ];
