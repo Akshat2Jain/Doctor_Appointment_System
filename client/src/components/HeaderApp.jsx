@@ -4,8 +4,9 @@ import { Badge, Drawer, Image, List, Space, Typography } from "antd";
 import "../styles/Dashboard.css";
 import { Button } from "antd";
 
-const HeaderApp = ({ handleLogout }) => {
+const HeaderApp = ({ handleLogout, name }) => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+
   return (
     <>
       <div className="AppHeader">
@@ -13,7 +14,7 @@ const HeaderApp = ({ handleLogout }) => {
           width={50}
           src="https://static.vecteezy.com/system/resources/previews/002/896/807/original/female-doctor-using-her-digital-tablet-free-vector.jpg"
         ></Image>
-        <Typography.Title>User's Dashboard</Typography.Title>
+        <Typography.Title>{name} Dashboard</Typography.Title>
         <Space>
           <Badge>
             <Button onClick={handleLogout}>Logout</Button>

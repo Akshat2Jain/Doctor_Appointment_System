@@ -1,0 +1,15 @@
+.menu {
+  font-size: 12px;
+  margin-top: 30px;
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 20px;
+}
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+}
+.menu-item:hover {
+  letter-spacing: 1px;
+  transform: 0.5 ease;
+}

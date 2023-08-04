@@ -21,7 +21,7 @@
 }
 
 .navbar-logo {
-  font-size: 24px;
+  font-size: 35px;
   font-weight: bold;
 }
 
@@ -34,6 +34,7 @@
 
 .navbar-link {
   margin-right: 20px;
+  font: sans-serif;
 }
 
 .navbar-link:last-child {
@@ -47,8 +48,9 @@
   font-weight: bold;
   transition: color 0.3s ease;
   cursor: pointer;
+  font-size: 25px;
 }
 
-.navbar-link a:hover {
+.navbar-link:hover {
   color: #f1c40f;
 }

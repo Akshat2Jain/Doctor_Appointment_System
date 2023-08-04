@@ -1,57 +1,26 @@
-import {
-  AppstoreOutlined,
-  ShopOutlined,
-  ShoppingCartOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 import { Menu } from "antd";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { userMenu, adminMenu } from "../Menu/MenuList";
+import "../styles/sidebar.css";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const SidebarApp = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [selectedKeys, setSelectedKeys] = useState("/dashboard");
-
-  useEffect(() => {
-    const pathName = location.pathname;
-    setSelectedKeys(pathName);
-  }, [location.pathname]);
-
+  const { user } = useSelector((state) => state.user);
+  const SideBarMenu = user?.isAdmin ? adminMenu : userMenu;
   return (
     <>
       <div className="SideMenu">
-        <Menu
-          className="SideMenuVertical"
-          mode="vertical"
-          onClick={(item) => {
-            //item.key
-            navigate(item.key);
-          }}
-          selectedKeys={[selectedKeys]}
-          items={[
-            {
-              label: "Dashbaord",
-              icon: <AppstoreOutlined />,
-              key: "/dasboard",
-            },
-            {
-              label: "Inventory",
-              key: "/dashboard/inventory",
-              icon: <ShopOutlined />,
-            },
-            {
-              label: "Orders",
-              key: "/dashboard/orders",
-              icon: <ShoppingCartOutlined />,
-            },
-            {
-              label: "Profile",
-              key: "/customers",
-              icon: <UserOutlined />,
-            },
-          ]}
-        ></Menu>
+        <Menu className="SideMenuVertical">
+          <div className="menu">
+            {SideBarMenu.map((item) => {
+              return (
+                <h2 className="menu-item">
+                  <Link to={item.path}>{item.name}</Link>
+                </h2>
+              );
+            })}
+          </div>
+        </Menu>
       </div>
     </>
   );

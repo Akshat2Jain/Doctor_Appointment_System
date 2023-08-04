@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,7 @@ import "../styles/Dashboard.css";
 const Dashboard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [name, setName] = useState("");
   const getUserData = async () => {
     try {
       const res = await axios.post(
@@ -24,7 +25,7 @@ const Dashboard = () => {
           },
         }
       );
-      console.log(res.data.data.name);
+      setName(res.data.data.name);
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +45,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="DashApp">
-        <HeaderApp handleLogout={handleLogout} />
+        <HeaderApp handleLogout={handleLogout} name={name} />
         <div className="SideMenuAndPageContent">
           <SidebarApp />
           <PageContent />
