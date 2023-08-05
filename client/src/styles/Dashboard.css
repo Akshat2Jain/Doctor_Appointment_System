@@ -46,3 +46,10 @@
 .PageContent {
   padding-left: 12px;
 }
+
+.bell {
+  cursor: pointer;
+}
+.bell:hover {
+  color: azure;
+}

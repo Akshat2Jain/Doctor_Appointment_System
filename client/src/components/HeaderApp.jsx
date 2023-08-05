@@ -3,9 +3,13 @@ import { BellFilled } from "@ant-design/icons";
 import { Badge, Drawer, Image, List, Space, Typography } from "antd";
 import "../styles/Dashboard.css";
 import { Button } from "antd";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const HeaderApp = ({ handleLogout, name }) => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -19,7 +23,13 @@ const HeaderApp = ({ handleLogout, name }) => {
           <Badge>
             <Button onClick={handleLogout}>Logout</Button>
           </Badge>
-          <Badge>
+          <Badge
+            count={user && user.notification.length}
+            onClick={() => {
+              navigate("/notifications");
+            }}
+            className="bell"
+          >
             <BellFilled style={{ fontSize: 24 }} />
           </Badge>
         </Space>

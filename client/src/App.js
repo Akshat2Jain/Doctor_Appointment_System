@@ -12,6 +12,7 @@ import PublicRoute from "./components/PublicRoute";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Applydoctor from "./pages/Applydoctor";
 import Profile from "./pages/Profile";
+import Notification from "./pages/Notification";
 
 const App = () => {
   const { loading } = useSelector((state) => state.alerts);
@@ -76,6 +77,14 @@ const App = () => {
                 element={
                   <ProtectedRoutes>
                     <Profile />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/notifications"
+                element={
+                  <ProtectedRoutes>
+                    <Notification />
                   </ProtectedRoutes>
                 }
               />

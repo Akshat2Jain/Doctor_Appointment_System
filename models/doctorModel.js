@@ -1,6 +1,6 @@
-const mongoos = require("mongoose");
+const mongoose = require("mongoose");
 
-const doctorSchema = new mongoos.Schema(
+const doctorSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
@@ -52,6 +52,6 @@ const doctorSchema = new mongoos.Schema(
   { timestamps: true }
 );
 
-const doctorModel = mongoos.model("users", doctorSchema);
+const doctorModel = mongoose.model("doctors", doctorSchema);
 
 module.exports = doctorModel;

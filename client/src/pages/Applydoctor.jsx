@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import { message } from "antd";
 import SidebarApp from "../components/SidebarApp";
@@ -11,44 +11,50 @@ import "../styles/Form.css";
 const Applydoctor = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const getUserData = async () => {
-    try {
-      const res = await axios.post(
-        "http://localhost:8080/api/v1/user/getUserData",
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        }
-      );
-      setName(res.data.data.name);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const { user } = useSelector((state) => state.user);
+
+  // getuserdata
   const handleLogout = async () => {
     dispatch(showLoading());
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     localStorage.clear();
     navigate("/");
     message.success("Logout Succesfully");
     dispatch(hideLoading());
   };
-  useEffect(() => {
-    getUserData();
-  }, []);
 
   // apply doctor form
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values, e) => {
     console.log(values);
+    try {
+      dispatch(showLoading());
+
+      const res = await axios.post(
+        "http://localhost:8080/api/v1/user/applydoctor",
+        { ...values, userId: user._id },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (res.data.success) {
+        message.success(res.data.message);
+        navigate("/dashboard");
+      } else {
+        message.error(res.data.success);
+      }
+    } catch (error) {
+      message.error("Something went wrong");
+      dispatch(hideLoading());
+      console.log(error);
+    }
   };
   return (
     <>
       <div className="DashApp">
-        <HeaderApp handleLogout={handleLogout} name={name} />
+        <HeaderApp handleLogout={handleLogout} name={user?.name} />
         <div className="SideMenuAndPageContent">
           <SidebarApp />
           <div className="form">
