@@ -24,10 +24,10 @@ export const adminMenu = [
   },
   {
     name: "Users",
-    path: "/appointments",
+    path: "/admin/users",
   },
   {
     name: "Doctors",
-    path: "/doctors",
+    path: "/admin/doctors",
   },
 ];
