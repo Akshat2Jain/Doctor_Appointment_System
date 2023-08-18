@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import { useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Loading from "./components/Loading";
-import "./App.css";
-import { useSelector } from "react-redux";
 import PublicRoute from "./components/PublicRoute";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Applydoctor from "./pages/Applydoctor";
@@ -16,10 +16,10 @@ import Notification from "./pages/Notification";
 import Doctors from "./pages/Admin/Doctors";
 import Users from "./pages/Admin/Users";
 import Appointment from "./pages/Appointment";
+import AppointmentList from "./pages/AppointmentList";
 
 const App = () => {
   const { loading } = useSelector((state) => state.alerts);
-
   return (
     <>
       {loading ? (
@@ -112,6 +112,14 @@ const App = () => {
                 element={
                   <ProtectedRoutes>
                     <Appointment />
+                  </ProtectedRoutes>
+                }
+              />
+              <Route
+                path="/appointments"
+                element={
+                  <ProtectedRoutes>
+                    <AppointmentList />
                   </ProtectedRoutes>
                 }
               />
