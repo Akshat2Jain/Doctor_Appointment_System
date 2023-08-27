@@ -119,6 +119,7 @@ const Appointment = () => {
                 }
               />
               <TimePicker
+               aria-required={"true"} 
                 format="HH:mm"
                 className="m-2"
                 onChange={(value) => {
